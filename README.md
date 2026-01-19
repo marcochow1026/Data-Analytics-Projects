@@ -1,5 +1,3 @@
-# Data-Analytics-Projects
-
 # Ecommerce Data Analysis
 
 This repository contains a Jupyter Notebook (`Ecommerce_Data_Analysis.ipynb`) for analyzing an e-commerce customer churn dataset. The analysis includes data cleaning, exploratory data visualization, feature importance using Random Forest, Partial Dependence Plots (PDP) for key features, and business insights on churn drivers.
