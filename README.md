@@ -29,19 +29,19 @@ This dataset is obtained from Kaggle (https://www.kaggle.com/datasets/dhairyajee
 - The Multinomianl Logistic Regression model give a 77% accuracy.
 
 - Key Insights:
-  - Customer Service Call is the most influential feature, the odds ratio of churn will **increase for 24.2%** for one extra Customer Service Call.
+  - **Customer Service Call** is the most influential feature, the odds ratio of churn will **increase for 24.2%** for one extra Customer Service Call.
 
-  - If the customer signed up in the fourth quarter, the odds ratio of churn will be **13.1% higher** than customer signed up in the other quarters.
+  - If the customer signed up in the **fourth quarter**, the odds ratio of churn will be **13.1% higher** than customer signed up in the other quarters.
 
-  - Customers from France have a **8.9% lower** odds ratio of churn, compared to customers from other countries.
+  - Customers from **France** have a **8.9% lower** odds ratio of churn, compared to customers from other countries.
 
-  - The odds ratio of churn will **decrease for 4.3%** for one extra purchase.
+  - The odds ratio of churn will **decrease for 4.3%** for one extra **purchase**.
 
-  - The odds ratio of churn will **increase for 3.8%** for 1% increase in Cart Abandonment Rate.
+  - The odds ratio of churn will **increase for 3.8%** for 1% increase in **Cart Abandonment Rate**.
 
 ### Random Forest Modeling Results
 - Random Forest Model gives a 92% accuracy for predicting churn risk.
-- PDP Plots for the top 5 important features:
+- Partial Dependence Plots (PDP) for the top 5 important features:
   - **High customer service calls** (>5) **double** risk of churn from ~25% to ~50%.
   - **Low Lifetime Value** (<1000) **leads to high risk** of churn (~35–40%), dropping to ~25% at higher values, but with a risk spike for ultra-high LV (>2000).
   - **High cart abandonment** (>60%) **increases churn** up to ~45%.
