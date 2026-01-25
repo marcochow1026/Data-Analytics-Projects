@@ -25,6 +25,20 @@ This dataset is obtained from Kaggle (https://www.kaggle.com/datasets/dhairyajee
   - **The Middle**: Consists of 40% of customers, they are at the middle position in both RFM, engagement and churn rate.
   - **The Risky**: Consists of 41% of customers, contribute the **lowest RFM** (lifetime value <900, total number of purchases <10 and average order value ~120), **lowest           engagement** (Cart Abandonment Rate ~70%, Customer_Service_Calls >7) and **highest churn rate** (>40%). But at the same time, those customer may be the newcomers.
 
+### Multinomianl Logistic Regression Modeling Results
+- The Multinomianl Logistic Regression model give a 77% accuracy.
+
+- Key Insights:
+1. Customer Service Call is the most influential feature, the odds ratio of churn will **increase for 24.2%** for one extra Customer Service Call.
+
+2. If the customer signed up in the fourth quarter, the odds ratio of churn will be **13.1% higher** than customer signed up in the other quarters.
+
+3. Customers from France have a **8.9% lower** odds ratio of churn, compared to customers from other countries.
+
+4. The odds ratio of churn will **decrease for 4.3%** for one extra purchase.
+
+5. The odds ratio of churn will **increase for 3.8%** for 1% increase in Cart Abandonment Rate.
+
 ### Random Forest Modeling Results
 - Random Forest Model gives a 92% accuracy for predicting churn risk.
 - PDP Plots for the top 5 important features:
