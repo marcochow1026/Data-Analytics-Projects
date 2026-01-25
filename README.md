@@ -20,6 +20,7 @@ This dataset is obtained from Kaggle (https://www.kaggle.com/datasets/dhairyajee
 
 ### Customer segmentation
 - We includes RFM (Recency, Frequency and Monetary) and the engagement metrics like 'Session_Duration_Avg' and 'Customer_Service_Calls' as the citeria of the K-Mean Clustering.
+- We divided 3 group of customers:
   - **loyal customers**: Consists of 19% of customers, contribute the **highest RFM** (lifetime value >2400, total number of purchases >20 and average order value ~130),            **highest engagement** (Cart Abandonment Rate <40%, Customer_Service_Calls <4) and **lowest churn rate** (<20%).
   - **The Middle**: Consists of 40% of customers, they are at the middle position in both RFM, engagement and churn rate.
   - **The Risky**: Consists of 41% of customers, contribute the **lowest RFM** (lifetime value <900, total number of purchases <10 and average order value ~120), **lowest           engagement** (Cart Abandonment Rate ~70%, Customer_Service_Calls >7) and **highest churn rate** (>40%). But at the same time, those customer may be the newcomers.
