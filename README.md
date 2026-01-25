@@ -1,27 +1,44 @@
 # Ecommerce Data Analysis
 
-This repository contains a Jupyter Notebook (`Ecommerce_Data_Analysis.ipynb`) for analyzing an e-commerce customer churn dataset. The analysis includes data cleaning, exploratory data visualization, feature importance using Random Forest, Partial Dependence Plots (PDP) for key features, and business insights on churn drivers.
-
-## Executive Summary
-
-This project analyzes e-commerce customer behavior to identify key drivers of churn. Using a dataset of 50,000 customers, we performed data cleaning, exploratory analysis, and modeling with Random Forest to uncover patterns in churn probability. Key findings:
-- High customer service calls (>5) double churn risk from ~25% to ~50%.
-- Low Lifetime Value (<1,500) leads to high churn (~35–40%), dropping to ~25% at higher values, but with a risk spike for ultra-high LV (>2,500).
-- High cart abandonment (>60%) increases churn to ~45%.
-- Younger customers (<25) churn at 50% vs 30% for older ones.
-- High discount usage (>30%) reduces churn to ~30%.
-
-These insights suggest focusing on improving customer service, reducing abandonment, and targeting young/low-value customers for retention. The Random Forest model achieved strong performance (e.g., R² ~0.92 for purchase prediction), providing actionable recommendations for e-commerce retention strategies.
+This repository contains a Jupyter Notebook (`Ecommerce_Data_Analysis.ipynb`) for analyzing an e-commerce customer dataset. The analysis includes data cleaning, exploratory data visualization, customer segmentation using K-Mean clustering method, prediction of churn probability using multinominal logistics regression and Random Forest, and business insights.
 
 ## Project Description
 
 The notebook performs a comprehensive analysis of customer churn in an e-commerce dataset. Steps include:
 - **Data Loading & Cleaning**: Handling invalid values, imputation with medians, no row removal.
 - **Exploratory Data Analysis (EDA)**: Visualizations of churn vs key features (e.g., Lifetime_Value, Customer_Service_Calls).
+- **Customer segmentation**: Using K-Mean clustering to divide customers into 3 clusters: loyal customers, the "middle" and the "risky".
 - **Modeling**: Random Forest for feature importance and Partial Dependence Plots (PDP) to show how top features affect churn probability.
 - **Business Insights**: Conclusions on churn drivers, with recommendations for retention.
 
 The dataset includes features like Age, Lifetime_Value, Cart_Abandonment_Rate, Customer_Service_Calls, etc.
+
+## Source of Data
+This dataset is obtained from Kaggle (https://www.kaggle.com/datasets/dhairyajeetsingh/ecommerce-customer-behavior-dataset). Contains 50000 rows of customers data with 25 features, including Customer Demographics (e.g. Age, Gender, Country), Platform Engagement (e.g. Cart_Abandonment_Rate, Session_Duration_Avg, Customer_Service_Calls) and Purchase Behavior (e.g. Total_Purchases, Average_Order_Value).
+
+## Results & Key Insights
+
+### Customer segmentation
+- We includes RFM (Recency, Frequency and Monetary) and the engagement metrics like 'Session_Duration_Avg' and 'Customer_Service_Calls' as the citeria of the K-Mean Clustering.
+  - **loyal customers**: Consists of 19% of customers, contribute the **highest RFM** (lifetime value >2400, total number of purchases >20 and average order value ~130),            **highest engagement** (Cart Abandonment Rate <40%, Customer_Service_Calls <4) and **lowest churn rate** (<20%).
+  - **The Middle**: Consists of 40% of customers, they are at the middle position in both RFM, engagement and churn rate.
+  - **The Risky**: Consists of 41% of customers, contribute the **lowest RFM** (lifetime value <900, total number of purchases <10 and average order value ~120), **lowest           engagement** (Cart Abandonment Rate ~70%, Customer_Service_Calls >7) and **highest churn rate** (>40%). But at the same time, those customer may be the newcomers.
+
+### Random Forest Modeling Results
+- Random Forest Model gives a 92% accuracy for predicting churn risk.
+- PDP Plots for the top 5 important features:
+  - **High customer service calls** (>5) **double** risk of churn from ~25% to ~50%.
+  - **Low Lifetime Value** (<1000) **leads to high risk** of churn (~35–40%), dropping to ~25% at higher values, but with a risk spike for ultra-high LV (>2000).
+  - **High cart abandonment** (>60%) **increases churn** up to ~45%.
+  - **Younger customers** (<25) have a risk of churn at **50%**, while older customers have a risk of churn at 30%.
+  - **Low discount usage** (<30%) **increases churn** from ~30% to ~40%.
+
+### Business Recommendations
+1. **Reduce service calls**: Intervene after 3–5 calls with proactive support.
+2. **Target low-LV customers**: Win-back offers to push them to mid-LV threshold.
+3. **Fix abandonment**: Optimize checkout to reduce rates above 60%.
+4. **Retain young customers**: Tailored marketing for <25 age group.
+5. **Leverage discounts**: Provide attractive discounts to lower churn risk.
 
 ## Installation
 
@@ -52,35 +69,9 @@ pip install pandas numpy scikit-learn statsmodels matplotlib seaborn xgboost
 
 The notebook is self-contained — execute cells sequentially for cleaning, EDA, modeling, and insights.
 
-## Results & Key Insights
-
-### Exploratory Visualizations
-- **Churn vs Lifetime_Value**: High churn (~35–40%) at low LV, drops to ~25% at mid-high LV, with a risk spike at ultra-high LV.
-- **Churn vs Customer_Service_Calls**: Churn doubles after 5 calls, nearing 100% at 20+ calls.
-
-### Modeling Results
-- Random Forest feature importance: Top drivers include Customer_Service_Calls, Lifetime_Value, Cart_Abandonment_Rate, Age, Discount_Usage_Rate.
-- PDP Plots: 
-  - Customer_Service_Calls: Sharp increase in churn after 5 calls.
-  - Lifetime_Value: Decreases churn up to ~2,000, then slight risk increase at extremes.
-  - Cart_Abandonment_Rate: Gradual rise in churn above 60%.
-  - Age: High churn (~50%) for <25 years, drops to ~30% for older.
-  - Discount_Usage_Rate: Lower churn (~30%) for high usage (>30%).
-
-### Business Recommendations
-1. **Reduce service calls**: Intervene after 3–5 calls with proactive support.
-2. **Target low-LV customers**: Win-back offers to push them to mid-LV threshold.
-3. **Fix abandonment**: Optimize checkout to reduce rates above 60%.
-4. **Retain young customers**: Tailored marketing for <25 age group.
-5. **Leverage discounts**: Use strategically to lower churn in price-sensitive segments.
-
-## License
-
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
-
 ## Acknowledgments
 
-- Dataset: Assumed to be from a standard e-commerce source.
+- Dataset: https://www.kaggle.com/datasets/dhairyajeetsingh/ecommerce-customer-behavior-dataset
 - Libraries: Scikit-learn, Statsmodels, Matplotlib, Seaborn.
 
-Contact: [Your Name/Email] for questions or contributions.
+Contact: Contact marcochow1026 for questions or contributions.
