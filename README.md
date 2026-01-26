@@ -25,7 +25,7 @@ This dataset is obtained from Kaggle (https://www.kaggle.com/datasets/dhairyajee
   - **The "Middle"**: Consists of 40% of customers, they are at the middle position in both RFM, engagement and churn rate.
   - **The "Risky"**: Consists of 41% of customers, contribute the **lowest RFM** (lifetime value <900, total number of purchases <10 and average order value ~120), **lowest           engagement** (Cart Abandonment Rate ~70%, Customer_Service_Calls >7) and **highest churn rate** (>40%). But at the same time, those customer may be the newcomers.
 
-### Multinomianl Logistic Regression Modeling Results
+### Multinominal Logistic Regression Modeling Results
 - The Multinomianl Logistic Regression model give a 77% accuracy.
 
 - Key Insights:
